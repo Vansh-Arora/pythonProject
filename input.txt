@@ -1,0 +1,27 @@
+ab->cd
+cd->ef
+ef->z
+z->tu
+tu->st
+st->rs
+m->n
+n->o
+ab,m
+ab,ef
+
+
+def subs(arr, n, i,  ans, final_ans):
+    if i == n:
+        a = ans[:]
+        final_ans.append(a)
+        return
+    subs(arr,n,i+1,ans,final_ans)
+    ans.append(arr[i])
+    subs(arr,n,i+1, ans, final_ans)
+    ans.pop()
+
+final_ans = []
+ans  = []
+arr = [1,2,3]
+subs(arr,3,0,ans,final_ans)
+print(final_ans)
