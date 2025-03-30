@@ -1,4 +1,4 @@
-from Sorting_techniques.helper import swap
+from SortingTechniques.helper import swap
 
 ## Three-way Partitioning
 def quick_sort(input_arr, st, end):

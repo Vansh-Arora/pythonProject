@@ -1,10 +1,10 @@
 import unittest
 from parameterized import parameterized
-from Sorting_techniques.bubble_sort import bubble_sort
-from Sorting_techniques.insertion_sort import insertion_sort
-from Sorting_techniques.merge_sort import merge_sort
-from Sorting_techniques.quick_sort import quick_sort
-from Sorting_techniques.selection_sort import selection_sort
+from SortingTechniques.bubble_sort import bubble_sort
+from SortingTechniques.insertion_sort import insertion_sort
+from SortingTechniques.merge_sort import merge_sort
+from SortingTechniques.quick_sort import quick_sort
+from SortingTechniques.selection_sort import selection_sort
 
 
 class TestSort(unittest.TestCase):

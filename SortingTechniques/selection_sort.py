@@ -1,4 +1,4 @@
-from Sorting_techniques.helper import swap
+from SortingTechniques.helper import swap
 
 
 def selection_sort(arr):
