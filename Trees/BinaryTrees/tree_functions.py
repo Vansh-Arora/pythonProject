@@ -29,12 +29,16 @@ def level_order_traversal(root):
     que = [root]
     result = []
     while len(que) != 0:
-        curr = que.pop(0)
-        result.append(curr.val)
-        if curr.left is not None:
-            que.append(curr.left)
-        if curr.right is not None:
-            que.append(curr.right)
+        level_size = len(que)
+        level = []
+        for i in range(level_size):
+            curr = que.pop(0)
+            level.append(curr.val)
+            if curr.left is not None:
+                que.append(curr.left)
+            if curr.right is not None:
+                que.append(curr.right)
+        result.append(level)
     return result
 
 def pre_order_traversal(root):
@@ -52,8 +56,54 @@ def pre_order_traversal(root):
             stck.append(curr.left)
     return result
 
-root = create_tree_from_array([0])
-root.left = Node(0)
-if root.left:
-    print(root)
-    print(root.val)
+
+def in_order(root):
+    if not root:
+        return []
+    res = []
+    stack = []
+    current = root
+    while stack or current:
+        while current:
+            stack.append(current)
+            current = current.left
+
+        current = stack.pop()
+        res.append(current.val)
+        current = current.right
+    return res
+
+def post_order_2_stack(root):
+    if root == None:
+        return []
+    st1 = [root]
+    st2 = []
+    while st1:
+        curr = st1.pop()
+        st2.append(curr.val)
+        if curr.left:
+            st1.append(curr.left)
+        if curr.right:
+            st1.append(curr.right)
+    st2.reverse()
+    return st2
+
+def post_order_1_stack(root):
+    if root == None:
+        return
+    st = []
+    result = []
+    last_visited = None
+    curr = root
+    while st or curr:
+        if curr:
+            st.append(curr)
+            curr = curr.left
+        else:
+            top = st[-1]
+            if top.right and last_visited != top.right:
+                curr = top.right
+            else:
+                result.append(top)
+                last_visited = st.pop()
+    return result

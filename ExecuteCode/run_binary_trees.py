@@ -3,8 +3,7 @@ from Trees.BinaryTrees.tree_functions import create_tree_from_array, level_order
 
 # Create
 print("Binary Tree")
-in_arr = execution_helper.generate_array(5, 0, 2)
-in_arr = [1, 1, 0, 0, 1]
+in_arr = execution_helper.generate_array(5, 0, 10)
 print("Input Array", in_arr)
 
 root = create_tree_from_array(in_arr)
