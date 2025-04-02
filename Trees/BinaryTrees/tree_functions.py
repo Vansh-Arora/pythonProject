@@ -48,7 +48,6 @@ def pre_order_traversal(root):
     result = []
     while stck:
         curr = stck.pop()
-        print(curr.val)
         result.append(curr.val)
         if curr.right is not None:
             stck.append(curr.right)
@@ -104,6 +103,27 @@ def post_order_1_stack(root):
             if top.right and last_visited != top.right:
                 curr = top.right
             else:
-                result.append(top)
+                result.append(top.val)
                 last_visited = st.pop()
     return result
+
+def pre_post_in_single_stack(root):
+    stck = [[root,1]]
+    pre,ino,pos=[],[],[]
+
+    while stck:
+        node, st = stck.pop()
+        if st == 1:
+            pre.append(node.val)
+            stck.append([node,2])
+            if node.left:
+                stck.append([node.left,1])
+        if st == 2:
+            ino.append(node.val)
+            stck.append([node,3])
+            if node.right:
+                stck.append([node.right,1])
+        if st == 3:
+            pos.append(node.val)
+
+    return pre, ino, pos
