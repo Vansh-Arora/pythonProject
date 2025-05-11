@@ -1,7 +1,10 @@
 from ExecuteCode import execution_helper
 from Trees.BinaryTrees.boundary_order_traversal import boundary_traversal
+from Trees.BinaryTrees.lca import lca
+from Trees.BinaryTrees.root_to_node_path import getPath
 from Trees.BinaryTrees.tree_functions import create_tree_from_array, level_order_traversal, pre_order_traversal, \
     pre_post_in_single_stack, in_order, post_order_1_stack
+from Trees.BinaryTrees.Node import Node
 
 # Create
 print("Binary Tree")
@@ -52,8 +55,26 @@ print()
 
 
 # Boundary traversal
-
 print("Boundary Traversal")
 bot = boundary_traversal(root)
 print("Boundary: ", bot)
 print()
+
+
+# Root to node
+print("Root to node path")
+key = 2
+ans = []
+path = getPath(root,key,ans)
+print(ans)
+print()
+
+# LCA
+print("LCA")
+in_arr = [4,7,6,1,2]
+root = create_tree_from_array(in_arr)
+print(level_order_traversal(root))
+n1 = Node(6)
+n2 = Node(2)
+ans = lca(root, n1, n2)
+print(ans.val)
